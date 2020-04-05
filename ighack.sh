@@ -14,7 +14,7 @@ cyan='\e[1;36m'
 white='\e[1;37m'
 
 # thread limit => kurangin lebih kecil angkanya boleh, naikin? saran w jangan... awokwowok:v
-limit=50
+limit=30
 
 # banner
 echo -e $'''
